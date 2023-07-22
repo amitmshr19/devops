@@ -1,0 +1,156 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod  
+  labels:
+    kind: web
+    target: dev
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    ports:
+    - containerPort: 80
+      protocol: TCP
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod2
+  labels:
+    kind: api
+    target: dev
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    ports:
+    - containerPort: 80
+      protocol: TCP
+  - image: mysql:5.7
+    name: mysql
+    ports:
+    - containerPort: 3306
+      protocol: TCP      
+    env: 
+    - name: MYSQL_ALLOW_EMPTY_PASSWORD
+      value: "true"       
+
+---
+
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: frontend
+  labels:
+    app: guestbook
+    tier: frontend
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        tier: frontend
+    spec:
+      containers:
+      - name: php-redis
+        image: gcr.io/google_samples/gb-frontend:v3
+---
+
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: nginx
+spec:
+  replicas: 3
+  selector:
+    app: nginx
+  template:
+    metadata:
+      name: nginx
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+        
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ng-dep
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      target: dev
+  template:
+    metadata:
+      name: ng-pod
+      labels:
+        target: dev
+    spec:
+      nodeSelector:
+        kubernetes.io/os: linux
+      containers:
+      - name: nginx
+        image: k8slab/nginx:1.0
+        ports:
+        - containerPort: 80
+          protocol: TCP
+
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: workload
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: workload
+  template:
+    metadata:
+      labels:
+        app: workload
+        color: magenta
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.18
+        ports:
+        - containerPort: 80
+          protocol: TCP
+        resources: 
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: ng-svc
+spec:
+  ports:
+    - port: 80
+  selector:
+    target: dev
+  type: NodePort
+
+---

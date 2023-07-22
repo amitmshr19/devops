@@ -1,0 +1,127 @@
+  211  20-May-2023 14:22:19 systemctl status jenkins
+  212  20-May-2023 14:22:55 cd /var/lib/je
+  213  20-May-2023 14:23:12 clear
+  214  21-May-2023 15:23:09 docker --version
+  215  21-May-2023 15:23:57 docker contianer run -d --name test nginx
+  216  21-May-2023 15:24:08 docker container run -d --name test nginx
+  217  21-May-2023 15:24:17 docker container ls
+  218  21-May-2023 15:25:23 docker image ls
+  219  21-May-2023 15:26:09 ps -ef | grep nginx
+  220  21-May-2023 15:26:26 ps -ef | grep 2791
+  221  21-May-2023 15:26:36 clear
+  222  21-May-2023 15:26:40 docker image ls
+  223  21-May-2023 15:27:17 docker container ls
+  224  21-May-2023 15:52:59 systemctl status docker
+  225  21-May-2023 15:53:08 docker --version
+  226  21-May-2023 15:56:07 clear
+  227  21-May-2023 15:56:14 ps -ef | grep docker
+  228  21-May-2023 15:57:04 docker image ls
+  229  21-May-2023 16:09:03 docker container ls
+  230  21-May-2023 16:09:09 docker ps
+  231  21-May-2023 16:09:48 docker container ls
+  232  21-May-2023 16:09:55 docker image ls
+  233  21-May-2023 16:10:18 cd
+  234  21-May-2023 16:10:20 clear
+  235  21-May-2023 16:11:22 cd /var/lib/docker/
+  236  21-May-2023 16:11:22 ls
+  237  21-May-2023 16:11:32 pwd
+  238  21-May-2023 16:11:41 docker image ls
+  239  21-May-2023 16:11:52 docker container ls
+  240  21-May-2023 16:12:43 cd
+  241  21-May-2023 16:12:46 clear
+  242  21-May-2023 16:15:08 docker container run -it --name demo nginx
+  243  21-May-2023 16:16:01 clear
+  244  21-May-2023 16:16:21 docker container ls
+  245  21-May-2023 16:16:53 docker container ls -a
+  246  21-May-2023 16:17:36 docker container run -d --name demo nginx
+  247  21-May-2023 16:18:14 docker container rm demo
+  248  21-May-2023 16:18:17 docker container ls -a
+  249  21-May-2023 16:18:34 docker container run -d --name demo nginx
+  250  21-May-2023 16:18:45 docker container ls -a
+  251  21-May-2023 16:19:07 clear
+  252  21-May-2023 16:19:19 docker container run -d  nginx
+  253  21-May-2023 16:19:23 docker container ls -a
+  254  21-May-2023 16:20:13 docker container ls 
+  255  21-May-2023 16:21:05 docker container stop distracted_volhard
+  256  21-May-2023 16:21:09 docker container ls -a
+  257  21-May-2023 16:21:24 docker container rm distracted_volhard
+  258  21-May-2023 16:21:26 docker container ls -a
+  259  21-May-2023 16:21:30 clear
+  260  21-May-2023 16:21:35 docker container ls -a
+  261  21-May-2023 16:21:43 cd /var/lib/docker/
+  262  21-May-2023 16:21:43 ls
+  263  21-May-2023 16:21:49 cd containers/
+  264* 21-May-2023 16:21:50 
+  265  21-May-2023 16:22:28 cd
+  266  21-May-2023 16:24:57 lscpu
+  267  21-May-2023 16:25:01 clear
+  268  21-May-2023 16:25:05 free -m
+  269  21-May-2023 16:26:07 docker container run -d --name jenkins -p 8888:8080 jenkins/jenkins:lts
+  270  21-May-2023 16:26:16 clear
+  271  21-May-2023 16:26:20 docker container ls
+  272  21-May-2023 16:26:53 curl localhost:8888
+  273  21-May-2023 16:33:10 clear
+  274  21-May-2023 16:33:12 ls
+  275  21-May-2023 16:33:19 docker container ls
+  276  21-May-2023 16:33:59 clear
+  277  21-May-2023 16:37:23 docker image ls
+  278  21-May-2023 16:37:35 docker container ls
+  279  21-May-2023 16:37:57 docker container stop 7ccc7afb1356
+  280  21-May-2023 16:38:00 docker container ls
+  281  21-May-2023 16:38:07 docker container ls -a
+  282  21-May-2023 16:38:28 docker container rm 7ccc7afb1356
+  283  21-May-2023 16:38:30 clear
+  284  21-May-2023 16:38:32 docker container ls -a
+  285  21-May-2023 16:39:16 docker image pull java
+  286  21-May-2023 16:39:36 docker image pull java:6
+  287  21-May-2023 16:40:18 docker image pull openjdk
+  288  21-May-2023 16:42:14 docker image pull openjdk:21-oracle
+  289  21-May-2023 16:42:21 clear
+  290  21-May-2023 16:42:24 docker image ls
+  291  21-May-2023 16:47:12 docker container ls
+  292  21-May-2023 16:47:45 docker contianer rm demo
+  293  21-May-2023 16:47:49 docker container rm demo
+  294  21-May-2023 16:48:09 docker container rm -f demo
+  295  21-May-2023 16:48:17 docker container ls
+  296  21-May-2023 16:48:39 docker container kill test
+  297  21-May-2023 16:48:42 docker container ls
+  298  21-May-2023 16:48:45 docker container ls -a
+  299  21-May-2023 16:49:38 clear
+  300  21-May-2023 16:49:44 docker contianer ls
+  301  21-May-2023 16:49:49 docker container ls
+  302  21-May-2023 16:49:58 docker container run -d --name test nginx
+  303  21-May-2023 16:50:10 docker container rm -f test
+  304  21-May-2023 16:50:12 docker container run -d --name test nginx
+  305  21-May-2023 16:50:16 docker container ls
+  306  21-May-2023 16:51:36 docker container exec -it test bash
+  307  21-May-2023 16:52:47 docker container exec  test bash
+  308  21-May-2023 16:52:55 docker container exec -i  test bash
+  309  21-May-2023 16:53:57 clear
+  310  21-May-2023 16:54:56 ls
+  311  21-May-2023 16:55:02 docker container ls
+  312  21-May-2023 16:55:35 docker container rename test demo
+  313  21-May-2023 16:55:37 docker container ls
+  314  21-May-2023 16:55:53 docker container pause demo
+  315  21-May-2023 16:55:57 docker container ls
+  316  21-May-2023 16:56:07 docker container unpause demo
+  317  21-May-2023 16:56:11 docker container ls
+  318  21-May-2023 16:56:54 docker container exec -it demo bash
+  319  21-May-2023 16:57:23 vi testfile
+  320  21-May-2023 16:57:30 ls
+  321  21-May-2023 16:58:05 docker container cp testfile demo:/
+  322  21-May-2023 16:58:09 docker container exec -it demo bash
+  323  21-May-2023 16:59:27 which bash
+  324  21-May-2023 16:59:58 echo $PATH
+  325  21-May-2023 17:01:08 clear
+  326  21-May-2023 17:01:18 history | grep jenkins
+  327  21-May-2023 17:01:43 docker container ls
+  328  21-May-2023 17:01:55 docker container pause demo
+  329  21-May-2023 17:01:58 docker container ls
+  330  21-May-2023 17:02:07 docker container exec -it demo bash
+  331  21-May-2023 17:02:36 history | grep openjdk
+  332  21-May-2023 17:02:42 docker image ls
+  333  21-May-2023 17:05:19 clear
+  334  21-May-2023 17:24:03 docker
+  335  21-May-2023 17:24:08 docker image ls
+  336  21-May-2023 17:24:26 docker image rm 958489e3043d
+  337  21-May-2023 17:24:28 docker image ls

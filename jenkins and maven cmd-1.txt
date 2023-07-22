@@ -1,0 +1,201 @@
+  882  mvn --version
+  883  clear
+  884  mvn archetype:generate
+  885  ls
+  886  cd  demo
+  887  ls
+  888  tree
+  889  mvn compile
+  890  tree
+  891  ls
+  892  mvn test
+  893  tree
+  894  mvn package
+  895  tree
+  896  ls
+  897  history  | tail -30
+  898  cd ..
+  899  rm -rf demo
+  900  clear
+  901  ls
+  902  mvn archetype:generate
+  903  ls
+  904  cd dmeo
+  905  cd demo
+  906  clear
+  907  ls
+  908  tree
+  909  mvn install
+  910  tree
+  911  cd ..
+  912  clear
+  913  ls
+  914  git clone https://github.com/pH-7/Simple-Java-Text-Editor.git
+  915  cd  Simple-Java-Text-Editor/
+  916  ls
+  917  rm SimpleJavaTextEditor.jar
+  918  mvn install
+  919  clear
+  920  cd ..
+  921  rm -rf Simple-Java-Text-Editor/
+  922  git clone https://github.com/buddy-works/simple-java-project.git
+  923  cd  simple-java-project/
+  924  ls
+  925  tree
+  926  mvn install
+  927  clear
+  928  ls
+  929  tree
+  930  cd  demo/
+  931  vi pom.xml
+  932  ls
+  933  tree
+  934  vi pom.xml
+  935  ls -ltra
+  936  cd ..
+  937  ls
+  938  rm -rf simple-java-project/
+  939  clear
+  940  ls
+  941  git clone https://github.com/hannonhill/Webservices-Java-Sample-Project.git
+  942  cd  Webservices-Java-Sample-Project/
+  943  ls
+  944  mvn install
+  945  vi pom.xml
+  946  clear
+  947  vi pom.xml
+  948  mvn install
+  949  vi pom.xml
+  950  clear
+  951  mvn install
+  952  vi pom.xml
+  953  clear
+  954  cd demo
+  955  ls
+  956  vi pom.xml
+  957  cd ..
+  958  ls
+  959  cd simple-java-project/
+  960  ls
+  961  rm -rf target
+  962  clear
+  963  mvn install
+  964  clear
+  965  cd ..
+  966  ks
+  967  ls
+  968  cd demo
+  969  ks
+  970  ls
+  971  tree
+  972  clear
+  973  cd ..
+  974  ls
+  975  cd simple-java-project/
+  976  ls
+  977  rm -rf target/
+  978  clear
+  979  ls
+  980  mvn install
+  981  ls
+  982  cd src/
+  983  ls
+  984  tree
+  985  ls
+  986  cd main/java/works/buddy/samples/
+  987  ls
+  988  vi WorksWithHerokuServlet.java
+  989  pwd
+  990  cd ../../../../
+  991  ls
+  992  cd ..
+  993  ls
+  994  cd ..
+  995  ls
+  996  vi pom.xml
+  997  ls
+  998  mvn install
+  999  ls -ltr
+ 1000  clear
+ 1001  ls
+ 1002  history | grep mvn
+ 1003  ls
+ 1004  cd  demo/
+ 1005  ls
+ 1006  tree
+ 1007  java - jar demo-1.0-SNAPSHOT.jar
+ 1008  java -jar demo-1.0-SNAPSHOT.jar
+ 1009  ls
+ 1010  cd target/
+ 1011  ls
+ 1012  java -jar demo-1.0-SNAPSHOT.jar
+ 1013  tree
+ 1014  cd ..
+ 1015  tree
+ 1016  ls
+ 1017  less /var/log/messages
+ 1018  ls
+ 1019  clear
+ 1020  ls
+ 1021  mvn clean
+ 1022  ls
+ 1023  tree
+ 1024  mvn install
+ 1025  ls
+ 1026  mvn clean
+ 1027  ls
+ 1028  mvn install
+ 1029  clear
+ 1030  ls
+ 1031  tree
+ 1032  clear
+ 1033  ls
+ 1034  clear
+ 1035  cd
+ 1036  ssh 3.109.184.108
+ 1037  clear
+ 1038  ssh 3.109.184.108
+ 1039  ping 172.31.34.192
+ 1040  cd /etc
+ 1041  pwd
+ 1042  ls
+ 1043  cd
+ 1044  clear
+ 1045  ssh 3.109.184.108
+ 1046  clear
+ 1047  ssh-keygen
+ 1048  ls -ltra
+ 1049  cd .ssh
+ 1050  ls -ltr
+ 1051  cat known_hosts
+ 1052  ls
+ 1053  cd
+ 1054  ssh-copy-id root@3.109.184.108
+ 1055  ssh root@3.109.184.108
+ 1056  cd .ssh
+ 1057  ls -ltr
+ 1058  cat id_rsa.pub
+ 1059  ssh root@3.109.184.108
+ 1060  clear
+ 1061  pwd
+ 1062  ls
+ 1063  ssh root@3.109.184.108
+ 1064  ssh-copy-id root@3.109.184.108
+ 1065  ls
+ 1066  ssh root@3.109.184.108
+ 1067  cat id_rsa.pub
+ 1068  ssh root@3.109.184.108
+ 1069  cd
+ 1070  clear
+ 1071  systemctl status jenkins
+ 1072  yum remove jenkins
+ 1073  rm -rf /var/lib/jenkins/
+ 1074  clear
+ 1075  java --version
+ 1076  yum install jenkins
+ 1077  clear
+ 1078  systemctl start jenkins
+ 1079  systemctl status jenkins
+ 1080  clear
+ 1081  history  | tail
+ 1082  cat /var/lib/jenkins/secrets/initialAdminPassword

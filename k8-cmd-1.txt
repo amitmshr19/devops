@@ -1,0 +1,134 @@
+ 1012  kubectl get po
+ 1013  kubectl create deployment testdeploy --image=nginx --replicas=2
+ 1014  kubectl get po
+ 1015  kubectl get deployment
+ 1016  clear
+ 1017  kubectl get po
+ 1018  kubectl get deployment
+ 1019  kubectl delete po my-pod
+ 1020  kubectl delete po testdeploy-65767bc948-dxtqd
+ 1021  kubectl create deployment deploy2 --image=nginx --replicas=2
+ 1022  kubectl create deployment deploy3 --image=nginx
+ 1023  clear
+ 1024  kubectl get deploy
+ 1025  kubectl delete deploy deploy2 deploy3 testdeploy
+ 1026  kubectl get deploy
+ 1027  kubectl get po
+ 1028  kubectl delete po testpod
+ 1029  clear
+ 1030  kubectl get po
+ 1031  kubectl get deploy
+ 1032  kubectl get replicaset
+ 1033  kubectl get rs
+ 1034  kubectl create deployment deploy1 --image=nginx --replicas=2
+ 1035  kubectl get rs
+ 1036  kubectl get po
+ 1037  kubectl delete po deploy1-5d88679d77-x4chq
+ 1038  kubectl get po
+ 1039  clear
+ 1040  ls
+ 1041  vi rc.yaml
+ 1042  vi rs.yaml
+ 1043  kubectl apply -f rs.yaml
+ 1044  kubectl get rs
+ 1045  kubectl get po --show-lables
+ 1046  kubectl get po
+ 1047  clear
+ 1048  kubectl get po
+ 1049  kubectl describe po frontend-f2jtr
+ 1050  clear
+ 1051  kubectl get po
+ 1052  kubectl get po -o wide
+ 1053  clear
+ 1054  kubectl get rs
+ 1055  kubectl get po
+ 1056  kubectl delete deploy deploy1
+ 1057  clear
+ 1058  kubectl get po
+ 1059  kubectl get rs
+ 1060  kubectl delete po frontend-f2jtr
+ 1061  kubectl get po
+ 1062  vi rs.yaml
+ 1063  vi rs2.yaml
+ 1064  vi rs.yaml
+ 1065  kubectl apply -f rs.yaml
+ 1066  vi rs.yaml
+ 1067  clear
+ 1068  vi rs.yaml
+ 1069  vi rs2.yaml
+ 1070  kubectl get po --show-labels
+ 1071  kubectl run testpod --image=nginx
+ 1072  kubectl get po --show-labels
+ 1073  kubectl label po testpod env=dev
+ 1074  kubectl get po --show-labels
+ 1075  kubectl run testpod2 --image=nginx
+ 1076  kubectl label po testpod2 env=dev
+ 1077  clear
+ 1078  kubectl get po --show-labels
+ 1079  vi rs.yaml
+ 1080  clear
+ 1081  ls
+ 1082  vi deploy.yaml
+ 1083  kubectl get rs
+ 1084  kubectl get po --show-labels
+ 1085  kubectl delete po testpod2
+ 1086  vi rs.yaml
+ 1087  kubectl run testpod2 --image=nginx
+ 1088  clear
+ 1089  vi deploy.yaml
+ 1090  kubectl apply -f deploy.yaml
+ 1091  kubectl get po --show-labels
+ 1092  vi deploy.yaml
+ 1093  clear
+ 1094  kubectl delete po testpod2
+ 1095  kubectl delete po testpod
+ 1096  kubectl get po --show-labels
+ 1097  kubectl get rs
+ 1098  kubectl delete rs frontend
+ 1099  clear
+ 1100  kubectl get deploy
+ 1101  vi deploy.yaml
+ 1102  kubectl scale replicas=3 deploy/ng-dep
+ 1103  kubectl scale --replicas=3 deploy/ng-dep
+ 1104  kubectl get deploy
+ 1105  kubectl get po
+ 1106  kubectl get rs
+ 1107  vi deploy.yaml
+ 1108  kubectl apply -f deploy.yaml
+ 1109  cleaar
+ 1110  clear
+ 1111  kubectl get po
+ 1112  kubectl get deploy
+ 1113  #kubectl scale --replicas=3 deploy/ng-dep
+ 1114  kubectl scale --replicas=2 deploy/ng-dep
+ 1115  kubectl get deploy
+ 1116  vi deploy.yaml
+ 1117  kubectl apply -f deploy.yaml
+ 1118  vi deploy.yaml
+ 1119  kubectl apply -f deploy.yaml
+ 1120  clear
+ 1121  kubectl rollout history deploy/ng-dep
+ 1122  kubectl rollout undo deploy/ng-dep --to-revision=2
+ 1123  kubectl rollout history deploy/ng-dep
+ 1124  kubectl get deploy
+ 1125  kubectl get rs
+ 1126  kubectl rollout undo deploy/ng-dep --to-revision=3
+ 1127  kubectl get rs
+ 1128  clear
+ 1129  kubectl get deploy
+ 1130  kubectl delete deploy ng-dep
+ 1131  kubectl get deploy
+ 1132  kubectl get rs
+ 1133  kubectl get po
+ 1134  kubectl apply -f deploy.yaml
+ 1135  vi deploy.yaml
+ 1136  kubectl apply -f deploy.yaml
+ 1137  kubectl rollout history deploy/ng-dep
+ 1138  kubectl rollout undo deploy/ng-dep --to-revision=1
+ 1139  clear
+ 1140  kubectl get po
+ 1141  kubectl run testpod --image=nginx
+ 1142  kubectl describe po testpod
+ 1143  clear
+ 1144  kubectl get po
+ 1145  kubectl describe po ng-dep-667d487b7b-lrpcd

@@ -1,0 +1,309 @@
+Taint and tolerations -
+
+To taint a node:
+kubectl taint nodes agent env=test:NoSchedule
+kubectl taint node agent env=test:NoExecute
+
+To remove a taint
+kubectl taint nodes aent env:NoSchedule-
+kubectl taint node agent env=test:NoExecute-
+
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:
+    env: test
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    imagePullPolicy: IfNotPresent
+  tolerations:
+  - key: "env"
+    operator: "Exists"
+    effect: "NoSchedule"
+    
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+Node selector -
+
+Add label to a node
+kubectl label node agent env:test
+
+remove label from a node
+kubectl label node agent env-
+
+Deploy a pod on a labelled node only - 
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod  
+  labels:
+    kind: web
+    target: dev
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    ports:
+    - containerPort: 80
+  nodeSelector:
+    env: test    
+ 
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ 
+
+Init container -
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: init-container
+  labels:
+    app: init-container
+spec:
+  initContainers:
+  - name: init-container
+    image: nginx:1.9.1
+    command: ['sh', '-c', 'echo Created by init containers > /dir1/file1']
+    volumeMounts:
+    - name: initmount
+      mountPath: /dir1
+  containers:
+  - name: test-init
+    image: nginx
+    command: ['sh', '-c', 'cat /dir1/file1 && sleep 3600']
+    volumeMounts:
+    - name: initmount
+      mountPath: /dir1
+  volumes:
+  - name: initmount
+    emptyDir: {}
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+config map
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: demo-cm
+spec:
+  restartPolicy: OnFailure
+  containers:
+  - name: demo-cm
+    image: nginx
+    imagePullPolicy: Always
+    volumeMounts:
+    - name: script-path
+      mountPath: /config
+    volumeMounts:
+    - name: local-storage
+      mountPath: /var/www/
+  nodeSelector:
+    Node_name: "test_Node"
+  volumes:
+  - name: script-path
+    configMap:
+      name: myscript
+  volumes:
+  - name: local-storage
+    hostPath:
+      path: /root/test
+      type: Directory
+      
+      
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: myscript
+data:
+  script.sh: |
+    echo "This is from the `hostname`"
+    
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Static Pod -
+
+cd /etc/kubernetes/manifests run
+And create static-pod.yaml
+
+-- static-web.yaml
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: static-web
+  labels:
+    role: myrole
+spec:
+  containers:
+    - name: web
+      image: nginx
+      ports:
+        - name: web
+          containerPort: 80
+          protocol: TCP
+
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Secret -
+
+kubectl create secret generic test --from-literal=username='my-app' --from-literal=password='39528$vdg7Jb'
+
+secret yaml - 
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysql-pass1
+data:
+  password: cmVkaGF0Cg==
+ 
+ii) Create a POD with mounted secret via ENV
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: secret-pod
+spec:
+  containers:
+  - name: secret-pod
+    image: nginx
+    env:
+    - name: MYSQL_ROOT_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          key: password
+          name: mysql-pass1
+ 
+iii) Create a POD with mounted secret via the file
+
+apiVersion: v1
+kind: Pod
+metadata:
+ name: pod-secret-mount
+ labels:
+   app: pod-secret-mount
+spec:
+  containers:
+  - name: pod-secret-mount
+    image: nginx
+    volumeMounts:
+    - name: foo
+      readOnly: true 
+      mountPath: "/etc/foo"
+  volumes:
+  - name: foo
+    secret:
+      secretName: mysql-pass1
+
+echo redhat | base64 
+
+echo cmVkaGF0Cg== | base64 -d
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+kubectl create ns test
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: jenkins-pod
+  labels:
+    app: jenkins-pod
+  namespace: test
+spec:
+  containers:
+  - name: jenkins-pod
+    image: nginx
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Daemon Set - 
+
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: demo-daemonset
+spec:
+  selector:
+    matchLabels:
+      name: demo-all-pods
+  template:
+    metadata:
+      labels:
+        name: demo-all-pods
+    spec:
+      containers:
+      - name: demo-pods
+        image: nginx
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+PV and PVC -
+
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-demo
+spec:
+  accessModes:
+  - ReadWriteMany
+  volumeMode: Filesystem
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  hostPath:
+    path: /var/storage
+  capacity:
+    storage: 1Gi
+
+
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-demo
+spec:
+  volumeName: pv-demo
+  storageClassName: local-storage
+  accessModes:
+   - ReadWriteMany
+  volumeMode: Filesystem
+  resources:
+   requests:
+    storage: 1Gi
+
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  containers:
+    - name: myfrontend
+      image: nginx
+      volumeMounts:
+      - mountPath: "/var/storage"
+        name: mypd
+  volumes:
+    - name: mypd
+      persistentVolumeClaim:
+        claimName: pvc-demo
+
+    
+    
+

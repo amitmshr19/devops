@@ -1,0 +1,224 @@
+ 1177  mkdir automation
+ 1178  cd auton
+ 1179  cd automation/
+ 1180  clear
+ 1181  pwd
+ 1182  terraform init
+ 1183  ls -ltra
+ 1184  vi ec2.tf
+ 1185  ls -ltr
+ 1186  terraform init
+ 1187  clear
+ 1188  ls -ltra
+ 1189  cd .terraform
+ 1190  ls
+ 1191  cd plugins/registry.terraform.io/hashicorp/aws/5.1.0/linux_amd64/
+ 1192  ls
+ 1193  pwd
+ 1194  cd ../../../..
+ 1195  ls
+ 1196  cd ../..
+ 1197  ls
+ 1198  cd ..
+ 1199  ls
+ 1200  clear
+ 1201  ls -ltr
+ 1202  terraform plan
+ 1203  clear
+ 1204  terraform apply
+ 1205  vi ec2.tf
+ 1206  terraform destroy
+ 1207  cat ec2.tf
+ 1208  aws configure
+ 1209  d
+ 1210  cd
+ 1211  cd .aws
+ 1212  ls
+ 1213  vi config
+ 1214  cat credentials
+ 1215  clear
+ 1216  ls
+ 1217  cp  credentials /tmp/
+ 1218  ls
+ 1219  pwd
+ 1220  cd ..
+ 1221  rm -rf.aws
+ 1222  rm -rf .aws
+ 1223  aws configure
+ 1224  cd  automation/
+ 1225  ls
+ 1226  clear
+ 1227  ls -ltr
+ 1228  terraform apply
+ 1229  aws configure
+ 1230  clear
+ 1231  vi ec2.tf
+ 1232  cat /tmp//credentials
+ 1233  aws confgiure
+ 1234  cat /tmp//credentials
+ 1235  aws configure
+ 1236  clear
+ 1237  terraform apply
+ 1238  rm -rf .terraform/
+ 1239  terraform init
+ 1240  ls -ltr
+ 1241  ls -ltra
+ 1242  cd .terraform
+ 1243  ls -ltr
+ 1244  cd ..
+ 1245  useradd aditya
+ 1246  su - aditya
+ 1247  vi ec2.tf
+ 1248  terraform apply
+ 1249  clear
+ 1250  terraform destroy
+ 1251  clear
+ 1252  vi ec2.tf
+ 1253  terraform apply
+ 1254  terrterr
+ 1255  terraform destroy
+ 1256  clear
+ 1257  ls -ltr
+ 1258  rm terraform.tfstate.backup
+ 1259  rm terraform.tfstate
+ 1260  clear
+ 1261  ls -ltra
+ 1262  vi ec2.tf
+ 1263  ls -ltra
+ 1264  terraform apply
+ 1265  clear
+ 1266  ls -ltr
+ 1267  mv terraform.tfstate /tmp/
+ 1268  ls -ltr
+ 1269  terraform destroy
+ 1270  ls -ltr
+ 1271  vi terraform.tfstate
+ 1272  mv /tmp/terraform.tfstate .
+ 1273  vi terraform.tfstate
+ 1274  terraform apply
+ 1275  clear
+ 1276  terraform destroy
+ 1277  clear
+ 1278  ls -ltra
+ 1279  rm terraform.tfstate.backup
+ 1280  rm terraform.tfstate
+ 1281  clear
+ 1282  ls -ltra
+ 1283  terraform apply
+ 1284  clear
+ 1285  mv terraform.tfstate /tmp/
+ 1286  terraform destroy
+ 1287  rm terraform.tfstate
+ 1288  mv /tmp/terraform.tfstate .
+ 1289  clear
+ 1290  terraform destroy
+ 1291  clear
+ 1292  terraform apply -h
+ 1293  clear
+ 1294  terraform apply -h | grep -i target
+ 1295  clear
+ 1296  ls -ltra
+ 1297  vi provider.tf
+ 1298  clear
+ 1299  ls -ltr
+ 1300  terraform init
+ 1301  clear
+ 1302  terraform apply
+ 1303  vi provider.tf
+ 1304  terraform apply
+ 1305  clear
+ 1306  ls -ltr
+ 1307  rm -rf terraform.tfstate
+ 1308  rm -rf terraform.tfstate.backup
+ 1309  ls -ltr
+ 1310  ls -ltra
+ 1311  terraform destroy
+ 1312  ls -ltra
+ 1313  cd .terraform/
+ 1314  ls
+ 1315  cd
+ 1316  cd Terraform/
+ 1317  s
+ 1318  ls
+ 1319  cd  environments/
+ 1320  ls
+ 1321  cd  test/
+ 1322  ls
+ 1323  cd ..
+ 1324  ls
+ 1325  cd  Terraform/modules/
+ 1326  clear
+ 1327  ls
+ 1328  cd ..
+ 1329  ls
+ 1330  cd environments/
+ 1331  ls
+ 1332  cd  test/
+ 1333  ls
+ 1334  vi test.tf
+ 1335  pwd
+ 1336  cd ..
+ 1337  ls
+ 1338  cd ..
+ 1339  ls
+ 1340  cd  modules/
+ 1341  ls
+ 1342  cd vpc
+ 1343  ls
+ 1344  vi  main.tf
+ 1345  cd ..
+ 1346  ls
+ 1347  cd ..
+ 1348  ls
+ 1349  cd environments/
+ 1350  ls
+ 1351  cd test/
+ 1352  ls
+ 1353  vi test.tf
+ 1354  cd
+ 1355  cd automation/
+ 1356  ls
+ 1357  terraform validate
+ 1358  terraform refresh
+ 1359  terraform apply
+ 1360  vi ec2.tf
+ 1361  terraform apply
+ 1362  terraform destroy -target=aws_instance.yourec2[0]
+ 1363  terraform destroy -target=aws_instance.yourec2[1]
+ 1364  ls -ltra
+ 1365  ls
+ 1366  vi variable.tf
+ 1367  vi provider.tf
+ 1368  ls -ltr
+ 1369  vi variable.tf
+ 1370  cat variable.tf
+ 1371  cat provider.tf
+ 1372  pwd
+ 1373  cd
+ 1374  cd  Terraform/modules/
+ 1375  ls
+ 1376  cd  rds
+ 1377  ls
+ 1378  vi variables.tf
+ 1379  vi main.tf
+ 1380  vi variables.tf
+ 1381  vi main.tf
+ 1382  cd ..
+ 1383  ls
+ 1384  cd environments/test/
+ 1385  vi test.tf
+ 1386  clear
+ 1387  cd
+ 1388  cd  automation/
+ 1389  ls
+ 1390  ls -ltr
+ 1391  vi ec2.tf
+ 1392  vi  .terraform/terraform.tfstate
+ 1393  vi ec2.tf
+ 1394  terraform apply
+ 1395  vi  .terraform/terraform.tfstate
+ 1396  ls -tr
+ 1397  ls -ltr
+ 1398  vi  .terraform/terraform.tfstate
+ 1399  terraform apply
+ 1400  vi  .terraform/terraform.tfstate

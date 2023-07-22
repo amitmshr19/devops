@@ -1,0 +1,149 @@
+ 1002  cd k8-lab/
+ 1003  ls
+ 1004  cat pvc.yaml
+ 1005  clear
+ 1006  cat pv.yaml
+ 1007  cat pod-storage.yaml
+ 1008  clear
+ 1009  vi pv.yaml
+ 1010  kubectl apply -f pv.yaml
+ 1011  kubectl get pv
+ 1012  vi pvc.yaml
+ 1013  kubectl apply -f pvc.yaml
+ 1014  kubectl get pv
+ 1015  kubectl get pvc
+ 1016  vi pod-storage.yaml
+ 1017  kubectl apply -f pod-storage.yaml
+ 1018  kubectl get po
+ 1019  kubectl exec -it mypod -- bash
+ 1020  cd /var/storage
+ 1021  ls
+ 1022  rm abc
+ 1023  cd /var/storage/
+ 1024  ls
+ 1025  ls -ltra
+ 1026  kubectl exec -it mypod -- bash
+ 1027  kubectl get po
+ 1028  kubectl exec -it mypod -- bash
+ 1029  kubectl get po
+ 1030  kubectl delete po mypod
+ 1031  kubectl get po
+ 1032  cd -
+ 1033  cd
+ 1034  cd k8-lab/
+ 1035  vi pod-storage.yaml
+ 1036  vi pvc.yaml
+ 1037  vi pv.yaml
+ 1038  clear
+ 1039  ls
+ 1040  vi pod-secret-env.yaml
+ 1041  vi secret.yaml
+ 1042  clear
+ 1043  cat secret.yaml
+ 1044  kubectl create -f secret.yaml
+ 1045  kubectl get secret
+ 1046  vi pod-secret-env.yaml
+ 1047  kubectl apply -f pod-secret-env.yaml
+ 1048  kubectl get po
+ 1049  kubectl exec -it secret-pod -- bash
+ 1050  vi pod-secret-
+ 1051  vi pod-secret-env.yaml
+ 1052  kubectl exec -it secret-pod -- bash
+ 1053  echo 'cmVkaGF0Cg==' | base64 -d
+ 1054  echo 'redhat' | base64
+ 1055  echo 'salil' | base64
+ 1056  echo 'c2FsaWwK' | base64 -d
+ 1057  ls
+ 1058  kubectl get po
+ 1059  cat secret.yaml
+ 1060  cat pod-storage.yaml
+ 1061  cat pod-secret-env.yaml
+ 1062  cat pod2.yaml
+ 1063  cat secret.yaml
+ 1064  ls
+ 1065  kubectl get secret
+ 1066  kubectl describe secret mysql-pass
+ 1067  kubectl get cm
+ 1068  kubectl describe cm myscript
+ 1069  kubectl describe cm myconfigmap
+ 1070  ls
+ 1071  clear
+ 1072  vi config-map.yaml
+ 1073  kubectl describe cm myconfigmap
+ 1074  ls
+ 1075  vi pod-cm.yaml
+ 1076  kubectl apply -f pod-cm.yaml
+ 1077  kubectl get po
+ 1078  kubectl describe po demo-cm
+ 1079  clear
+ 1080  vi pod-cm.yaml
+ 1081  kubectl get po
+ 1082  kubectl delete po demo-cm
+ 1083  kubectl delete po demo-cm --force
+ 1084  kubectl get po
+ 1085  kubectl apply -f pod-cm.yaml
+ 1086  kubectl get po
+ 1087  kubectl exec -it demo-cm -- bash
+ 1088  vi pod-cm.yaml
+ 1089  kubectl describe cm myconfigmap
+ 1090  kubectl exec -it demo-cm -- bash
+ 1091  clear
+ 1092  kubectl get no --show-label
+ 1093  kubectl get no --show-labels
+ 1094  kubectl label no agent node_name:test
+ 1095  kubectl label no agent node_name=test
+ 1096  kubectl get no --show-labels
+ 1097  vi pod-cm.yaml
+ 1098  clear
+ 1099  kubectl get po
+ 1100  kubectl delete po demo-cm
+ 1101  kubectl apply -f pod-cm.yaml
+ 1102  vi pod-cm.yaml
+ 1103  kubectl apply -f pod-cm.yaml
+ 1104  vi pod-cm.yaml
+ 1105  kubectl apply -f pod-cm.yaml
+ 1106  vi pod-cm.yaml
+ 1107  kubectl apply -f pod-cm.yaml
+ 1108  kubectl get po
+ 1109  kubectl describe po demo-cm
+ 1110  kubectl get no --show-labels
+ 1111  vi pod-cm.yaml
+ 1112  kubectl get po
+ 1113  kubectl delete po demo-cm
+ 1114  kubectl apply -f pod-cm.yaml
+ 1115  kubectl get po
+ 1116  kubectl describe po demo-cm
+ 1117  kubectl delete po demo-cm
+ 1118  vi pod-cm.yaml
+ 1119  kubectl get no --show-labels
+ 1120  vi pod-cm.yaml
+ 1121  kubectl apply -f pod-cm.yaml
+ 1122  kubectl get po
+ 1123  kubectl label no agent node_name-
+ 1124  kubectl get no --show-labels
+ 1125  clear
+ 1126  ls
+ 1127  vi multipod-vol.yaml
+ 1128  kubectl apply -f multipod-vol.yaml
+ 1129  kubectl get po
+ 1130  kubectl exec -it multipod-vol -- bash
+ 1131  kubectl get po
+ 1132  vi multipod-vol.yaml
+ 1133  kubectl exec -it multipod-vol -c nginx-container -- bash
+ 1134  kubectl get po
+ 1135  kubectl delete -f multipod-vol.yaml
+ 1136  kubectl apply -f multipod-vol.yaml
+ 1137  kubectl exec -it multipod-vol -c nginx-container -- bash
+ 1138  kubectl delete -f multipod-vol.yaml
+ 1139  vi multipod-vol.yaml
+ 1140  kubectl get po
+ 1141  #/usr/share/nginx/
+ 1142  kubectl delete po multipod-vol --frce
+ 1143  kubectl delete po multipod-vol --force
+ 1144  #kubectl exec -it multipod-vol -c nginx-container -- bash
+ 1145  kubectl apply -f multipod-vol.yaml
+ 1146  kubectl exec -it multipod-vol -c nginx-container -- bash
+ 1147  kubectl exec -it multipod-vol -c alpinecontainer -- bash
+ 1148  kubectl exec -it multipod-vol -c alpinecontainer -- sh
+ 1149  ls
+ 1150  vi init-pod.yaml
